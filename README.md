@@ -1,23 +1,6 @@
 # JDStatusBarNotification
 
-[![](https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2Fcalimarkus%2FJDStatusBarNotification%2Fbadge%3Ftype%3Dswift-versions)](https://swiftpackageindex.com/calimarkus/JDStatusBarNotification)
-
-Highly customizable & feature rich notifications displayed below the status bar / the notch.
-
-* Customizable colors, fonts & animations with multiple built-in styles
-* Interactive & interuptable Drag-to-Dismiss
-* Adaptive, dynamic layout
-    * Built-in pill-style or full-width layouts
-    * Pill width matches the presented text (customizable)
-    * Works on notch and no-notch devices
-    * Works in landscape & portrait
-* Built-in features (automatic layout):
-    * Title, subtitle and left-hand-views (e.g. Icons)
-    * An activity indicator
-    * A progress bar
-    * Custom views (UIView or SwiftUI View)
-
-Written in Swift, compatible for Obj-C!
+Highly customizable & feature rich notifications displayed below the status bar. Customizable colors, fonts & animations. Supports notch and no-notch devices, landscape & portrait layouts and Drag-to-Dismiss. Can display a subtitle, an activity indicator, a progress bar & custom views out of the box. iOS 13+. Swift ready!
 
 Please open a [Github issue](https://github.com/calimarkus/JDStatusBarNotification/issues), if you think anything is missing or wrong.
 
@@ -41,9 +24,10 @@ Full-Width styles in action (the pill styles support the same features / animati
   - Xcode -> File -> Add packages: `git@github.com:calimarkus/JDStatusBarNotification.git`
   - Importing:
       - In Swift: `import JDStatusBarNotification`
-      - In ObjC: `@import JDStatusBarNotification;`
+      - In ObjC: `#import "JDStatusBarNotification.h"` (or `@import JDStatusBarNotificationObjC;`)
 - [**CocoaPods:**](https://guides.cocoapods.org)
   - `pod 'JDStatusBarNotification'`
+  - or `pod 'JDStatusBarNotification/ObjC'` if you want to avoid pulling in any Swift.
 - [**Carthage:**](https://github.com/Carthage/Carthage)
   - `github "calimarkus/JDStatusBarNotification"`
 - **Manually:**

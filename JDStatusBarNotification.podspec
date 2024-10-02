@@ -2,9 +2,9 @@ Pod::Spec.new do |s|
   
   # basics
   s.name           = 'JDStatusBarNotification'
-  s.version        = '2.2.2'
+  s.version        = '2.2.0'
   s.platform       = :ios, '13.0'
-  s.swift_versions = ['5.9']
+  s.swift_versions = ['5.7']
   s.license        = { :type => 'MIT' }
   s.author         = { 'Markus Emrich' => 'markus.emrich@gmail.com' }  
   s.source         = { :git => 'https://github.com/calimarkus/JDStatusBarNotification.git', :tag => "#{s.version}" }

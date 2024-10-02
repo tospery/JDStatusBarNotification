@@ -10,10 +10,9 @@ import Foundation
 import UIKit
 
 class StyleCache: NSObject {
-  private var defaultStyle: StatusBarNotificationStyle = StatusBarNotificationStyle()
-  private var userStyles: [String: StatusBarNotificationStyle] = [:]
+  var defaultStyle: StatusBarNotificationStyle = StatusBarNotificationStyle()
+  var userStyles: [String: StatusBarNotificationStyle] = [:]
 
-  //  default to cached (potentially modified) default style
   func style(forName styleName: String?) -> StatusBarNotificationStyle {
     if let styleName, let style = userStyles[styleName] {
       return style
@@ -21,11 +20,7 @@ class StyleCache: NSObject {
     return defaultStyle
   }
 
-  //  default to cached (potentially modified) default style
   func style(forIncludedStyle includedStyle: IncludedStatusBarNotificationStyle) -> StatusBarNotificationStyle {
-    if includedStyle == .defaultStyle {
-      return defaultStyle
-    }
     return buildStyleForIncludedStyle(includedStyle)
   }
 
@@ -33,22 +28,20 @@ class StyleCache: NSObject {
     defaultStyle = styleBuilder(defaultStyle)
   }
 
-  // never base this on the (potentially modified) default style
   func addStyleNamed(_ styleName: String,
                      basedOnStyle includedStyle: IncludedStatusBarNotificationStyle,
                      prepare styleBuilder: NotificationPresenter.PrepareStyleClosure) -> String
   {
-    userStyles[styleName] = styleBuilder(buildStyleForIncludedStyle(includedStyle))
+    userStyles[styleName] = styleBuilder(style(forIncludedStyle: includedStyle))
     return styleName
   }
 
   // MARK: - Included Styles
 
-  // Always creates a new Style instance
   private func buildStyleForIncludedStyle(_ includedStyle: IncludedStatusBarNotificationStyle) -> StatusBarNotificationStyle {
       switch includedStyle {
       case .defaultStyle:
-          return StatusBarNotificationStyle()
+          return defaultStyle
 
       case .light:
           let style = StatusBarNotificationStyle()
